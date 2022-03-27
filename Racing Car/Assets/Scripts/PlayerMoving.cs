@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
-    private float height;
-    private float width;
-    public int desiredLane = 1; //-1:left_left 0:left 1:middle 2:right 3:right_right
-    private float laneDistance;
-    public float speed = 1f;
+    //    private float height;
+    //    private float width;
     private Vector2 touchBegan;
     private Vector2 touchEnded;
 
+    private float laneDistance;
+
+    [SerializeField]
+    private float scaleWeWant = 1f;
+
+    public int desiredLane = 1; //-1:left_left 0:left 1:middle 2:right 3:right_right
+    public float speed = 1f;
+
     private void Awake()
     {
-        height = Screen.height;
-        width = Screen.width;
-        laneDistance = (float)(1.67 * width / height);
-        transform.localScale = new Vector3((float)(1.67 * width / height), (float)(1.67 * width / height), (float)(1.67 * width / height));
+        laneDistance = SettingScale.setLocalDistance(scaleWeWant);
+        transform.localScale = SettingScale.setLocalScale(scaleWeWant);
     }
     private void Update() {
         if (Input.touchCount > 0)
