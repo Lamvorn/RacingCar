@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
-    //    private float height;
-    //    private float width;
     private Vector2 touchBegan;
     private Vector2 touchEnded;
 

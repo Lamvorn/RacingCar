@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinScript : MonoBehaviour
+public class OsbtacleScript : MonoBehaviour
 {
     [SerializeField]
-    private float scaleWeWant = 0.5f;
+    private float scaleWeWant = 1f;
 
-    private void Awake()
+    public void Awake()
     {
         transform.localScale = SettingScale.setLocalScale(scaleWeWant);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player")
         {
-            Debug.Log("TODO: Add coin counter and shop");
-            Destroy(gameObject);
+            Debug.Log("TODO: Game Over");
         }
     }
+
 }
