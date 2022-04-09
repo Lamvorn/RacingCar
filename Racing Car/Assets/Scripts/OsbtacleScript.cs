@@ -5,11 +5,13 @@ using UnityEngine;
 public class OsbtacleScript : MonoBehaviour
 {
     [SerializeField]
-    private float scaleWeWant = 1f;
+    private float scaleWeWantX = 1f;
+    [SerializeField]
+    private float scaleWeWantY = 1f;
 
     public void Awake()
     {
-        transform.localScale = SettingScale.setLocalScale(scaleWeWant);
+        transform.localScale = SettingScale.setLocalScale(scaleWeWantX, scaleWeWantY);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
