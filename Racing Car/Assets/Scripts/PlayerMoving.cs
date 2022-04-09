@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
-    //    private float height;
-    //    private float width;
     private Vector2 touchBegan;
     private Vector2 touchEnded;
 
     private float laneDistance;
 
     [SerializeField]
-    private float scaleWeWant = 1f;
+    private float scaleWeWantX = 1f;
+    [SerializeField]
+    private float scaleWeWantY = 1f;
 
     public int desiredLane = 1; //-1:left_left 0:left 1:middle 2:right 3:right_right
     public float speed = 1f;
 
     private void Awake()
     {
-        laneDistance = SettingScale.setLocalDistance(scaleWeWant);
-        transform.localScale = SettingScale.setLocalScale(scaleWeWant);
+        laneDistance = SettingScale.setLocalDistance(scaleWeWantX);
+        transform.localScale = SettingScale.setLocalScale(scaleWeWantX, scaleWeWantY);
     }
     private void Update() {
         if (Input.touchCount > 0)
