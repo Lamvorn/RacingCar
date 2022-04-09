@@ -9,6 +9,7 @@ public class PlayerMoving : MonoBehaviour
 
     private float laneDistance;
 
+
     [SerializeField]
     private float scaleWeWantX = 1f;
     [SerializeField]
@@ -47,7 +48,6 @@ public class PlayerMoving : MonoBehaviour
                 }
             }            
         }
-
         Vector2 targetPosition = transform.position.y * transform.up;
         //Debug.Log(targetPosition);
 
