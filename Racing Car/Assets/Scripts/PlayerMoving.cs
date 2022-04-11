@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
 {
-    private float height;
-    private float width;
-    public int desiredLane = 1; //-1:left_left 0:left 1:middle 2:right 3:right_right
-    private float laneDistance;
-    public float speed = 1f;
     private Vector2 touchBegan;
     private Vector2 touchEnded;
 
+    private float laneDistance;
+
+
+    [SerializeField]
+    private float scaleWeWantX = 1f;
+    [SerializeField]
+    private float scaleWeWantY = 1f;
+
+    public int desiredLane = 1; //-1:left_left 0:left 1:middle 2:right 3:right_right
+    public float speed = 1f;
+
     private void Awake()
     {
-        height = Screen.height;
-        width = Screen.width;
-        laneDistance = (float)(1.67 * width / height);
-        transform.localScale = new Vector3((float)(1.67 * width / height), (float)(1.67 * width / height), (float)(1.67 * width / height));
+        laneDistance = SettingScale.setLocalDistance(scaleWeWantX);
+        transform.localScale = SettingScale.setLocalScale(scaleWeWantX, scaleWeWantY);
     }
     private void Update() {
         if (Input.touchCount > 0)
@@ -44,7 +48,20 @@ public class PlayerMoving : MonoBehaviour
                 }
             }            
         }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            desiredLane--;
 
+            if (desiredLane == -2)
+                desiredLane = -1;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            desiredLane++;
+
+            if (desiredLane == 4)
+                desiredLane = 3;
+        }
         Vector2 targetPosition = transform.position.y * transform.up;
         //Debug.Log(targetPosition);
 
