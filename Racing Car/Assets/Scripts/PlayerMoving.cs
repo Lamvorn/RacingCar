@@ -48,6 +48,20 @@ public class PlayerMoving : MonoBehaviour
                 }
             }            
         }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            desiredLane--;
+
+            if (desiredLane == -2)
+                desiredLane = -1;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            desiredLane++;
+
+            if (desiredLane == 4)
+                desiredLane = 3;
+        }
         Vector2 targetPosition = transform.position.y * transform.up;
         //Debug.Log(targetPosition);
 
