@@ -15,26 +15,29 @@ public class OsbtacleScript : MonoBehaviour
 
     public void Awake()
     {
-        transform.localScale = SettingScale.setLocalScale(scaleWeWantX-0.2f, scaleWeWantY);
-        laneDistance = SettingScale.setLocalDistance(scaleWeWantX);
+        //transform.localScale = SettingScale.setLocalScale(scaleWeWantX-0.2f, scaleWeWantY);
+        laneDistance = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 0)).y / 3;
+        Debug.Log(laneDistance);
         switch (desiredLane)
         {
             case -1:
-                transform.localPosition += 2 * Vector3.left * laneDistance;
+                transform.localPosition += Vector3.left * (2*laneDistance-laneDistance/2) ;
                 break;
             case 0:
-                transform.localPosition += Vector3.left * laneDistance; 
+                transform.localPosition += Vector3.left * (laneDistance-laneDistance/2); 
                 break;
             case 1:
-                transform.localPosition = transform.localPosition.y * transform.up;
+                transform.localPosition += Vector3.right * (0 + laneDistance / 2);
                 break;
             case 2:
-                transform.localPosition += Vector3.right * laneDistance; 
+                transform.localPosition += Vector3.right * (laneDistance+laneDistance/2); 
                 break;
             case 3:
-                transform.localPosition += 2 * Vector3.right * laneDistance; 
+                transform.localPosition += Vector3.right * (2*laneDistance + laneDistance/2); 
                 break;
-            default: break;
+            default:
+                Debug.Log("AAAAAAAAAAAAA");
+                break;
         }        
     }
 

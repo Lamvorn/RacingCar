@@ -7,6 +7,6 @@ public class MovingStage : MonoBehaviour
     private float speedStage = 3f;
     void Update()
     {
-        transform.position = transform.position - Vector3.up * speedStage * Time.deltaTime;
+        transform.position = transform.position - Vector3.right * speedStage * Time.deltaTime;
     }
 }
