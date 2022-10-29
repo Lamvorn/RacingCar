@@ -14,14 +14,19 @@ public class PlayerMoving : MonoBehaviour
     private float scaleWeWantX = 1f;
     [SerializeField]
     private float scaleWeWantY = 1f;
-
-    public int desiredLane = 1; //-1:left_left 0:left 1:middle 2:right 3:right_right
+    
+    public int desiredLane = 1; //-1:bottom_bottom 0:bottom 1:middle 2:top 3:top_top
     public float speed = 1f;
+
+
+    private Vector3 startPosition = new Vector3(0,0,0);
 
     private void Awake()
     {
-        laneDistance = SettingScale.setLocalDistance(scaleWeWantX);
-        transform.localScale = SettingScale.setLocalScale(scaleWeWantX, scaleWeWantY);
+        laneDistance = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 0)).y / 3;
+        //transform.localScale = SettingScale.setLocalScale(scaleWeWantX, scaleWeWantY);
+        startPosition += startPosition - Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 0)) /6;
+        startPosition += Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height / 2, 0)) + Camera.main.ScreenToWorldPoint(new Vector3(Screen.width , Screen.height /2 , 0))/10;
     }
     private void Update() {
         if (Input.touchCount > 0)
@@ -48,42 +53,44 @@ public class PlayerMoving : MonoBehaviour
                 }
             }            
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             desiredLane--;
 
             if (desiredLane == -2)
                 desiredLane = -1;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             desiredLane++;
 
             if (desiredLane == 4)
                 desiredLane = 3;
         }
-        Vector2 targetPosition = transform.position.y * transform.up;
+        Vector2 targetPosition = startPosition;
         //Debug.Log(targetPosition);
 
         if (desiredLane == -1)
         {
-            targetPosition += 2*Vector2.left * laneDistance;
+            targetPosition += 2*Vector2.down * laneDistance;
         }
         else if (desiredLane == 0)
         {
-            targetPosition += Vector2.left * laneDistance; 
+            targetPosition += Vector2.down * laneDistance; 
         }
         else if (desiredLane == 2) {
-            targetPosition += Vector2.right * laneDistance;
+            targetPosition += Vector2.up * laneDistance;
         }
         else if (desiredLane == 3)
         {
-            targetPosition += 2*Vector2.right * laneDistance;
+            targetPosition += 2*Vector2.up * laneDistance;
         }
 
-        if( Mathf.Abs(targetPosition.x - transform.position.x) < 0.01)
+        if( Mathf.Abs(targetPosition.y - transform.position.y) < 0.01)
             transform.position = targetPosition;
         else
         transform.position = Vector2.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
+
+
     }
 }

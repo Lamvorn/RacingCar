@@ -14,11 +14,11 @@ public class GMSpawn : MonoBehaviour
     private void Start()
     {
         int num_stage = Random.Range(0, ListStage_23.Count);
-        Instantiate(ListStage_23[num_stage], startSpawnLocation.transform.position, Quaternion.identity);
+        Instantiate(ListStage_23[num_stage], startSpawnLocation.transform.position, Quaternion.Euler(0,0,-90));
     }
     public void SpawnStage() {
         int num_stage = Random.Range(0, ListStage_23.Count);
-        Instantiate(ListStage_23[num_stage], spawnLocation.transform.position, Quaternion.identity);
+        Instantiate(ListStage_23[num_stage], spawnLocation.transform.position, Quaternion.Euler(0,0,-90));
     }
 
 }
