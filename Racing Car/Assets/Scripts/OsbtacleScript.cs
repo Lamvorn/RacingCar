@@ -12,13 +12,14 @@ public class OsbtacleScript : MonoBehaviour
     [SerializeField]
     private float desiredLane = 1f;
 
+    public float DesiredLane { get => desiredLane; set => desiredLane = value; }
 
     public void Awake()
     {
         //transform.localScale = SettingScale.setLocalScale(scaleWeWantX-0.2f, scaleWeWantY);
         laneDistance = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 0)).y / 3;
-        Debug.Log(laneDistance);
-        switch (desiredLane)
+//        Debug.Log(laneDistance);
+        switch (DesiredLane)
         {
             case -1:
                 transform.localPosition += Vector3.left * (2*laneDistance-laneDistance/2) ;
