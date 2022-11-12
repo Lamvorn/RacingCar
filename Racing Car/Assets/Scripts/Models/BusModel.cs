@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BusModel : MonoBehaviour
 {
-    private float speed = 1f;
-    private bool isOppositeDirection;
+    public float speed = 3f;
+    private bool isOppositeDirection=false;
     private bool isBusCrashed = false;
     public OsbtacleScript obstacle;
-    public GameObject autobus;
+  //  public GameObject autobus;
 
     private void Awake()
     {
@@ -16,7 +16,14 @@ public class BusModel : MonoBehaviour
     }
     public bool IsOppositeDirection { get => isOppositeDirection; set => isOppositeDirection = value; }
     public float Speed { get => speed; set => speed = value; }
-    public GameObject Automobil { get => autobus; set => autobus = value; }
+   // public GameObject Autobus { get => autobus; set => autobus = value; }
     public OsbtacleScript Obstacle { get => obstacle; set => obstacle = value; }
     public bool IsBusCrashed { get => isBusCrashed; set => isBusCrashed = value; }
+
+    void Update()
+    {
+        if (this.IsOppositeDirection && !this.IsBusCrashed)
+            transform.position = transform.position - Vector3.right * Time.deltaTime * speed;
+    }
+
 }

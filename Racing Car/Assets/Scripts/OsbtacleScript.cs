@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class OsbtacleScript : MonoBehaviour
 {
-    [SerializeField]
-    private float scaleWeWantX = 1f;
-    [SerializeField]
-    private float scaleWeWantY = 1f;
+    //[SerializeField]
+    //private float scaleWeWantX = 1f;
+    //[SerializeField]
+    //private float scaleWeWantY = 1f;
     private float laneDistance;
     [SerializeField]
     private float desiredLane = 1f;
