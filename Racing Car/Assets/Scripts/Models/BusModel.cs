@@ -5,19 +5,17 @@ using UnityEngine;
 public class BusModel : MonoBehaviour
 {
     public float speed = 3f;
-    private bool isOppositeDirection=false;
+    public bool isOppositeDirection=false;
     private bool isBusCrashed = false;
-    public OsbtacleScript obstacle;
-  //  public GameObject autobus;
+    private ObstacleScript obstacle;
 
     private void Awake()
     {
-        //OsbtacleScript obstacle = Automobil.GetComponent<OsbtacleScript>();
+        obstacle = gameObject.GetComponent<ObstacleScript>();
     }
     public bool IsOppositeDirection { get => isOppositeDirection; set => isOppositeDirection = value; }
     public float Speed { get => speed; set => speed = value; }
-   // public GameObject Autobus { get => autobus; set => autobus = value; }
-    public OsbtacleScript Obstacle { get => obstacle; set => obstacle = value; }
+    public ObstacleScript Obstacle { get => obstacle; set => obstacle = value; }
     public bool IsBusCrashed { get => isBusCrashed; set => isBusCrashed = value; }
 
     void Update()
