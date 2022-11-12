@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Coin
   - Stage
+  - Bus
+  - Car
   layers:
   - Default
   - TransparentFX

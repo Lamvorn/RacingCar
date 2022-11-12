@@ -9,7 +9,9 @@ public class CreateNewStageColider : MonoBehaviour
     {
         if (collision.transform.tag == "Stage")
         {
-            gm.SpawnStage();
+            if (gm.IsStage23)
+                gm.SpawnStage23();
+            else gm.SpawnStage32();
         }
 
     }

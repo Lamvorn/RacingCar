@@ -2,23 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OsbtacleScript : MonoBehaviour
+public class ObstacleScript : MonoBehaviour
 {
-    [SerializeField]
-    private float scaleWeWantX = 1f;
-    [SerializeField]
-    private float scaleWeWantY = 1f;
     private float laneDistance;
     [SerializeField]
-    private float desiredLane = 1f;
+    private int desiredLane = 1;
 
+    public int DesiredLane { get => desiredLane; set => desiredLane = value; }
 
     public void Awake()
     {
-        //transform.localScale = SettingScale.setLocalScale(scaleWeWantX-0.2f, scaleWeWantY);
         laneDistance = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 0)).y / 3;
-        Debug.Log(laneDistance);
-        switch (desiredLane)
+//      Debug.Log(laneDistance);
+        switch (DesiredLane)
         {
             case -1:
                 transform.localPosition += Vector3.left * (2*laneDistance-laneDistance/2) ;
