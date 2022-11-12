@@ -9,11 +9,10 @@ public class PlayerMoving : MonoBehaviour
 
     private float laneDistance;
 
-
-    [SerializeField]
-    private float scaleWeWantX = 1f;
-    [SerializeField]
-    private float scaleWeWantY = 1f;
+    //[SerializeField]
+    //private float scaleWeWantX = 1f;
+    //[SerializeField]
+    //private float scaleWeWantY = 1f;
     
     public int desiredLane = 1; //-1:bottom_bottom 0:bottom 1:middle 2:top 3:top_top
     public float speed = 1f;
@@ -29,6 +28,13 @@ public class PlayerMoving : MonoBehaviour
         startPosition += Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height / 2, 0)) + Camera.main.ScreenToWorldPoint(new Vector3(Screen.width , Screen.height /2 , 0))/10;
     }
     private void Update() {
+        if (Input.GetKey(KeyCode.Space)) {
+            Time.timeScale = 0.5f;
+        }
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            Time.timeScale = 1f;
+        }
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
