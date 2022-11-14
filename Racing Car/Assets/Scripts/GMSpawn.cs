@@ -8,6 +8,9 @@ public class GMSpawn : MonoBehaviour
     public List<GameObject> ListStage_23;
     public List<GameObject> ListStage_32;
 
+    public GameObject Stage2into3;
+    public GameObject Stage3into2;
+
     private bool isStage23;
 
     public GameObject startSpawnLocation;
