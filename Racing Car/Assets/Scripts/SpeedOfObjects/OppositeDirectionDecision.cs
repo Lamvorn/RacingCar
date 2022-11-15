@@ -49,5 +49,10 @@ public class OppositeDirectionDecision : MonoBehaviour
                 }
             }
         }
+        if (collision.transform.tag == "Roadworks")
+        {
+            RoadworksModel roadworks = collision.transform.GetComponent<RoadworksModel>();
+            roadworks.IsOppositeDirection = true;
+        }
     }
 }
