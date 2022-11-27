@@ -9,7 +9,7 @@ public class MagnetModel : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             GameObject go = GameObject.FindObjectOfType<magnetColliderForCoins>(true).gameObject;
-            if (go.active) { go.GetComponent<magnetColliderForCoins>().timeUntilEndOfPowerUp = 5f; }
+            if (go.activeSelf) { go.GetComponent<magnetColliderForCoins>().startTimer(); }
             else go.SetActive(true);
             Destroy(gameObject);
         }

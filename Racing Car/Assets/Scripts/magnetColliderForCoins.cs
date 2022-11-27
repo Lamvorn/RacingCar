@@ -5,7 +5,8 @@ using UnityEngine;
 public class magnetColliderForCoins : MonoBehaviour
 {
     
-    public float timeUntilEndOfPowerUp = 0f;
+    public float setTimeUntilEndOfPowerUp = 10f;
+    private float realTimeUntilEndOfPowerUp = 0f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Coin")
@@ -15,19 +16,21 @@ public class magnetColliderForCoins : MonoBehaviour
     }
     private void OnEnable()
     {
-        timeUntilEndOfPowerUp = 5f;
+        startTimer();
         //OVDE TREBA PRENETI VREME SA MARKETA, NEKA TO BUDE 5s + 2 * KOLIKO JE NABUDZENO PUTA U MARKETU s
     }
-
+    public void startTimer() {
+        realTimeUntilEndOfPowerUp = setTimeUntilEndOfPowerUp;
+    }
     private void Update()
     {
-        if (timeUntilEndOfPowerUp < 0f)
+        if (realTimeUntilEndOfPowerUp < 0f)
         {
             gameObject.SetActive(false);
         }
         else
         {
-            timeUntilEndOfPowerUp -= Time.deltaTime;
+            realTimeUntilEndOfPowerUp -= Time.deltaTime;
         }
     }
 }
