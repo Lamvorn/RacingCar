@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  isOppositeDirection: 0
 --- !u!114 &8396367428575314756
 MonoBehaviour:
   m_ObjectHideFlags: 0
