@@ -17,19 +17,19 @@ public class ObstacleScript : MonoBehaviour
         switch (DesiredLane)
         {
             case -1:
-                transform.localPosition += Vector3.left * (2*laneDistance-laneDistance/2) ;
+                transform.localPosition = transform.localPosition.y * Vector3.up + Vector3.left * (2*laneDistance-laneDistance/2) ;
                 break;
             case 0:
-                transform.localPosition += Vector3.left * (laneDistance-laneDistance/2); 
+                transform.localPosition = transform.localPosition.y * Vector3.up + Vector3.left * (laneDistance-laneDistance/2); 
                 break;
             case 1:
-                transform.localPosition += Vector3.right * (0 + laneDistance / 2);
+                transform.localPosition = transform.localPosition.y * Vector3.up + Vector3.right * (0 + laneDistance / 2);
                 break;
             case 2:
-                transform.localPosition += Vector3.right * (laneDistance+laneDistance/2); 
+                transform.localPosition = transform.localPosition.y * Vector3.up + Vector3.right * (laneDistance+laneDistance/2); 
                 break;
             case 3:
-                transform.localPosition += Vector3.right * (2*laneDistance + laneDistance/2); 
+                transform.localPosition = transform.localPosition.y * Vector3.up + Vector3.right * (2*laneDistance + laneDistance/2); 
                 break;
             default:
                 Debug.Log("AAAAAAAAAAAAA");

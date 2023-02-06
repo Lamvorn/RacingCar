@@ -9,5 +9,17 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void goToShop()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void exitGame()
+    {
+        Application.Quit();
+    }
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }

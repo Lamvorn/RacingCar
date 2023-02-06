@@ -8,6 +8,9 @@ TagManager:
   - Stage
   - Bus
   - Car
+  - Roadworks
+  - ChangeIsStage
+  - Magnet
   layers:
   - Default
   - TransparentFX

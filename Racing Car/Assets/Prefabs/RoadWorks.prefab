@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4987818594631631576}
   - component: {fileID: 4987818594631631577}
   - component: {fileID: 4987818594631631578}
+  - component: {fileID: 5098747768219978977}
   m_Layer: 0
   m_Name: RoadWorks
-  m_TagString: Untagged
+  m_TagString: Roadworks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,8 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c751fbaf73a15ce4983bb69e526bade6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleWeWantX: 1
-  scaleWeWantY: 12
+  desiredLane: 1
 --- !u!61 &4987818594631631578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +124,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5098747768219978977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987818594631631579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1eb0e1376ddaf4f9dcd8abafa365b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
