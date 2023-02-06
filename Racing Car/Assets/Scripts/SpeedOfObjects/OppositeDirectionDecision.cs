@@ -49,5 +49,16 @@ public class OppositeDirectionDecision : MonoBehaviour
                 }
             }
         }
+        if (collision.transform.tag == "Roadworks")
+        {
+            RoadworksModel roadworks = collision.transform.GetComponent<RoadworksModel>();
+            roadworks.IsOppositeDirection = true;
+        }
+        if (collision.transform.tag == "ChangeIsStage")
+        {
+            Debug.Log(gm.IsStage23);
+            gm.IsStage23 = !gm.IsStage23;
+            Debug.Log(gm.IsStage23);
+        }
     }
 }

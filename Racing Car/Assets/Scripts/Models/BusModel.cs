@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BusModel : MonoBehaviour
 {
-    public float speed = 3f;
-    public bool isOppositeDirection=false;
+    public float speed = 4f;
+    private bool isOppositeDirection=false;
     private bool isBusCrashed = false;
     private ObstacleScript obstacle;
 
