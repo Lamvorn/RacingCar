@@ -16,24 +16,22 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       for (int i = 0; i < shopItemsSO.Length; i++)
+
+        for (int i = 0; i < shopItemsSO.Length; i++)
         {
             shopPanelsGO[i].SetActive(true);
         }
+        if (EncryptedPlayerPrefs.HasKey("123Vasic")) {
+            coins = EncryptedPlayerPrefs.GetInt("123Vasic");
+        }
         coinUI.text = "Coins: " + coins.ToString();
         LoadPanels();
-        CheckPurchaseable();
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        CheckPurchaseable(); 
     }
 
     public void AddCoins() { 
         coins+=10;
+        EncryptedPlayerPrefs.SetInt("123Vasic", coins);
         coinUI.text = "Coins: " + coins.ToString();
         CheckPurchaseable();
     }
@@ -52,6 +50,7 @@ public class ShopManager : MonoBehaviour
         if (coins >= shopItemsSO[btnNum].baseCost)
         {
             coins -= shopItemsSO[btnNum].baseCost;
+            EncryptedPlayerPrefs.SetInt("123Vasic", coins);
             coinUI.text = "Coins: " + coins.ToString();
             CheckPurchaseable() ;
         }
