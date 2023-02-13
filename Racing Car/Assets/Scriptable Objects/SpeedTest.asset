@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccf0809ecfd5c0e4396a9e3b36355c6c, type: 3}
-  m_Name: Shield
+  m_Name: SpeedTest
   m_EditorClassIdentifier: 
-  title: Shield
-  description: Power with which you can't die
+  title: Speed
+  description: Increase speed
   baseCost: 50
-  powerKey: ShieldPowerKey
-  pricePowerKey: PriceOfShieldKey
+  powerKey: powerSpeedTestKey
+  pricePowerKey: priceSpeedTestKey

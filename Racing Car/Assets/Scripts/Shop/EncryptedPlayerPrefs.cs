@@ -14,8 +14,10 @@ public class EncryptedPlayerPrefs
     // Modify this key in this file :
     private static string privateKey = "9ETrEsWaFRach3gexaDs";
 
+    //NumberOfCoinKey - coin ; SP9DupHa - NumberOfMagnets
+
     // Add some values to this array before using EncryptedPlayerPrefs
-    public static string[] keys = new string[] { "23Wrudre", "SP9DupHa", "frA5rAS3", "tHat2epr", "jaw3eDAs", "123Vasic"};
+    public static string[] keys = new string[] { "MagnetPowerKey", "ShieldPowerKey", "PriceOfMagnetKey", "PriceOfShieldKey", "NumberOfCoinsKey" };
 
         public static string Md5(string strToEncrypt)
     {

@@ -11,6 +11,8 @@ TagManager:
   - Roadworks
   - ChangeIsStage
   - Magnet
+  - Shield
+  - MagnetBtn
   layers:
   - Default
   - TransparentFX

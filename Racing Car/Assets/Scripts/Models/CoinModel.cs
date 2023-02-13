@@ -9,10 +9,12 @@ public class CoinModel : MonoBehaviour
     [SerializeField]
     private float scaleWeWantY = 0.5f;
     private bool inMagnetRange = false;
-
+    private static int coins = 0;
     private GameObject player;
 
-
+    public static int getCoin() { 
+        return coins;
+    }
     private void Awake()
     {
         transform.localScale = SettingScale.setLocalScale(scaleWeWantX, scaleWeWantY);
@@ -27,7 +29,9 @@ public class CoinModel : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            Debug.Log("TODO: Add coin counter and shop");
+            
+            coins++;
+            Debug.Log("coini su:" + coins);
             Destroy(gameObject);
         }
     }

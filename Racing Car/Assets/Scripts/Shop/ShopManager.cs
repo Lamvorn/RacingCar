@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     public GameObject[] shopPanelsGO;
     public ShopTemplate[] shopPanels;
     public Button[] myPurchaseBtns;
+    private static int MAXIMUM_POWER = 7;
 
     // Start is called before the first frame update
     void Start()
@@ -21,50 +22,99 @@ public class ShopManager : MonoBehaviour
         {
             shopPanelsGO[i].SetActive(true);
         }
-        if (EncryptedPlayerPrefs.HasKey("123Vasic")) {
-            coins = EncryptedPlayerPrefs.GetInt("123Vasic");
-        }
+        
+        coins = EncryptedPlayerPrefs.GetInt("NumberOfCoinsKey");
+        
         coinUI.text = "Coins: " + coins.ToString();
         LoadPanels();
         CheckPurchaseable(); 
     }
 
     public void AddCoins() { 
-        coins+=10;
-        EncryptedPlayerPrefs.SetInt("123Vasic", coins);
+        coins+=1000;
+        EncryptedPlayerPrefs.SetInt("NumberOfCoinsKey", coins);
         coinUI.text = "Coins: " + coins.ToString();
         CheckPurchaseable();
     }
 
-    public void LoadPanels() { 
+    public void LoadPanels() {
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
+            //Debug.Log(EncryptedPlayerPrefs.GetInt(shopItemsSO[i].powerKey));
+
             shopPanels[i].titleTxt.text = shopItemsSO[i].title;
             shopPanels[i].descriptionTxt.text = shopItemsSO[i].description;
-            shopPanels[i].costTxt.text = "Coins: " + shopItemsSO[i].baseCost.ToString();
+            shopPanels[i].costTxt.text = "Coins: " + (shopItemsSO[i].baseCost + EncryptedPlayerPrefs.GetInt(shopItemsSO[i].pricePowerKey)).ToString();
+            for (int j = 0; j < EncryptedPlayerPrefs.GetInt(shopPanels[i].powerKey); j++)
+            {
+                shopPanels[i].rawImage[j].gameObject.SetActive(true);
+            }
         }
     }
 
     public void PuchaseItem(int btnNum)
     {
-        if (coins >= shopItemsSO[btnNum].baseCost)
+        if (coins >= shopItemsSO[btnNum].baseCost + EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].pricePowerKey)) 
         {
-            coins -= shopItemsSO[btnNum].baseCost;
-            EncryptedPlayerPrefs.SetInt("123Vasic", coins);
+            Debug.Log(shopItemsSO[btnNum].powerKey);
+            Debug.Log(EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].powerKey));
+            coins -= shopItemsSO[btnNum].baseCost + EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].pricePowerKey);
+            EncryptedPlayerPrefs.SetInt("NumberOfCoinsKey", coins);
             coinUI.text = "Coins: " + coins.ToString();
-            CheckPurchaseable() ;
+            EncryptedPlayerPrefs.SetInt(shopItemsSO[btnNum].powerKey, EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].powerKey) + 1);
+            //EncryptedPlayerPrefs.SetInt(shopItemsSO[btnNum].powerCostValue, EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].powerCostValue) + 1);
+            EncryptedPlayerPrefs.SetInt(shopItemsSO[btnNum].pricePowerKey, EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].pricePowerKey) + EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].powerKey) * 100);
+            Debug.Log(shopItemsSO[btnNum].powerKey + "   ovolko     " + EncryptedPlayerPrefs.GetInt(shopItemsSO[btnNum].powerKey));
         }
+        CheckPurchaseable();
+        LoadPanels(); 
     }
 
     public void CheckPurchaseable()
     {
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
-            if (coins >= shopItemsSO[i].baseCost)
+            if (coins >= shopItemsSO[i].baseCost && EncryptedPlayerPrefs.GetInt(shopPanels[i].powerKey) < MAXIMUM_POWER)
                 myPurchaseBtns[i].interactable = true;
             else
                 myPurchaseBtns[i].interactable = false;
         }   
     }
+    //RESET BUTTON ONLY FOR DEVELOPER----------------------------------------------------
+    public void RestartAllPowerAndCoins()
+    {
+        for (int i = 0; i < shopItemsSO.Length; i++)
+        {
+            EncryptedPlayerPrefs.SetInt(shopPanels[i].powerKey, 0);
+            EncryptedPlayerPrefs.SetInt(shopPanels[i].pricePowerKey, 0);
+        }
+        baseCostReset();
+        EncryptedPlayerPrefs.SetInt("NumberOfCoinsKey", 0);
+        coins = EncryptedPlayerPrefs.GetInt("NumberOfCoinsKey");
+        coinUI.text = "Coins: " + coins.ToString();
+        powerUpgradeReset();
+        LoadPanels();
+        
+    }
 
+    private void baseCostReset() {
+        for (int i = 0; i < shopItemsSO.Length; i++) {
+            shopItemsSO[i].baseCost = 50;
+        }
+    }
+
+    private void powerUpgradeReset()
+    {
+        for (int i = 0; i < shopItemsSO.Length; i++)
+        {
+            shopPanels[i].rawImage[0].gameObject.SetActive(false);
+            shopPanels[i].rawImage[1].gameObject.SetActive(false);
+            shopPanels[i].rawImage[2].gameObject.SetActive(false);
+            shopPanels[i].rawImage[3].gameObject.SetActive(false);
+            shopPanels[i].rawImage[4].gameObject.SetActive(false);
+            shopPanels[i].rawImage[5].gameObject.SetActive(false);
+            shopPanels[i].rawImage[6].gameObject.SetActive(false);
+        }
+    }
+    //END OF RESET BUTTON ONLY FOR DEVELOPER----------------------------------------------------
 }

@@ -15,3 +15,5 @@ MonoBehaviour:
   title: Magnet
   description: Power with which you collect coins
   baseCost: 50
+  powerKey: MagnetPowerKey
+  pricePowerKey: PriceOfMagnetKey

@@ -13,10 +13,9 @@ public class PlayerMoving : MonoBehaviour
     //private float scaleWeWantX = 1f;
     //[SerializeField]
     //private float scaleWeWantY = 1f;
-    
+
     public int desiredLane = 1; //-1:bottom_bottom 0:bottom 1:middle 2:top 3:top_top
     public float speed = 1f;
-
 
     private Vector3 startPosition = new Vector3(0,0,0);
 
