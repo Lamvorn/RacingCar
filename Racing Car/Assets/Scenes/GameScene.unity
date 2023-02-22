@@ -271,7 +271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 113358830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 864505258}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: goToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &113358830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 864505256}
   - component: {fileID: 864505257}
+  - component: {fileID: 864505258}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -368,6 +381,19 @@ MonoBehaviour:
   Stage3into2: {fileID: 7281075669676881483, guid: d8de129285cef7043bc81a170a822f01, type: 3}
   startSpawnLocation: {fileID: 1694881451}
   spawnLocation: {fileID: 2061986467}
+  player: {fileID: 1989096224}
+--- !u!114 &864505258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864505255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310ecee571abe47458c8728b9a42a2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1019038652
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,9 +987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f179ee55cbc084ea09135681c1dce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textClock: {fileID: 0}
-  timer: 0
-  seconds: 0
 --- !u!1 &1895727895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1070,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1989096224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7569082879707277008, guid: 34c05a04433873747964ee1cfeca8520, type: 3}
+  m_PrefabInstance: {fileID: 7569082880278436821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2061986467
 GameObject:
   m_ObjectHideFlags: 0

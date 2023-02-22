@@ -16,6 +16,8 @@ public class GMSpawn : MonoBehaviour
     public GameObject startSpawnLocation;
     public GameObject spawnLocation;
 
+    public GameObject player;
+
     private int spawnCount;
 
     public bool IsStage23 { get => isStage23; set => isStage23 = value; }
@@ -26,6 +28,7 @@ public class GMSpawn : MonoBehaviour
 
     private void Start()
     {
+        player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/player" + EncryptedPlayerPrefs.GetInt("EquipedSkinKey"));
         spawnCount = Random.Range(2, 18);
         //spawnCount = 0;
         int num_stage = Random.Range(0, ListStage_23.Count);

@@ -13,7 +13,7 @@ public class ShieldModel : MonoBehaviour
             player = collision.transform.GetComponent<PlayerModel>();
             //Debug.Log("logujem vrednost : " + player.getShield());
             player.setShield(true);
-            player.speed = 6;
+            player.speedOfChangingColor = 6;
             player.startTimer();
             Destroy(gameObject);
         }

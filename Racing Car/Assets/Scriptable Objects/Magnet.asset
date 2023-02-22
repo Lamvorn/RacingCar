@@ -17,3 +17,4 @@ MonoBehaviour:
   baseCost: 50
   powerKey: MagnetPowerKey
   pricePowerKey: PriceOfMagnetKey
+  title_of_image: Sprites/MagnetShop

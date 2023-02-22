@@ -15,9 +15,9 @@ public class EncryptedPlayerPrefs
     private static string privateKey = "9ETrEsWaFRach3gexaDs";
 
     //NumberOfCoinKey - coin ; SP9DupHa - NumberOfMagnets
-
+    
     // Add some values to this array before using EncryptedPlayerPrefs
-    public static string[] keys = new string[] { "MagnetPowerKey", "ShieldPowerKey", "PriceOfMagnetKey", "PriceOfShieldKey", "NumberOfCoinsKey" };
+    public static string[] keys = new string[] { "MagnetPowerKey", "ShieldPowerKey", "PriceOfMagnetKey", "PriceOfShieldKey", "NumberOfCoinsKey", "PurchasedSkinKey0", "PurchasedSkinKey1", "PurchasedSkinKey2", "EquipedSkinKey" };
 
         public static string Md5(string strToEncrypt)
     {

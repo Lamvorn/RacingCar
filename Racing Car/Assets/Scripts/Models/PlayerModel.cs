@@ -10,7 +10,7 @@ public class PlayerModel : MonoBehaviour
 
     public Color startColor = Color.white;
     public Color endColor = Color.yellow;
-    public float speed = 1;
+    public float speedOfChangingColor = 1;
     Renderer ren;
 
     public bool isHaveShield() { return shiled; }
@@ -38,12 +38,12 @@ public class PlayerModel : MonoBehaviour
         }
         else if(isHaveShield())
         {
-            ren.material.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time * speed, 1));
+            ren.material.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time * speedOfChangingColor, 1));
             realTimeUntilEndOfPowerUp -= Time.deltaTime;
             if(realTimeUntilEndOfPowerUp < 13)
-                speed = 3;
+                speedOfChangingColor = 3;
             if (realTimeUntilEndOfPowerUp < 5)
-                speed = 1;
+                speedOfChangingColor = 1;
         }
     }
 }
