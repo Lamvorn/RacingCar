@@ -8,11 +8,12 @@ public class ObstacleScript : MonoBehaviour
     [SerializeField]
     private int desiredLane = 1;
     public GameObject explosion;
-
+    private GameObject gm;
     public int DesiredLane { get => desiredLane; set => desiredLane = value; }
 
     public void Awake()
     {
+        gm = GameObject.FindGameObjectWithTag("GM");
         laneDistance = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 0)).y / 3;
 //      Debug.Log(laneDistance);
         switch (DesiredLane)
@@ -53,9 +54,10 @@ public class ObstacleScript : MonoBehaviour
             {
                 int coins = CoinModel.getCoin();
                 EncryptedPlayerPrefs.SetInt("NumberOfCoinsKey", EncryptedPlayerPrefs.GetInt("NumberOfCoinsKey") + 10 * coins);
+                gm.GetComponent<GMSpawn>().GameOver(10*coins);
+                CoinModel.setCoin(0);
                 Debug.Log("TODO: Game Over");
             }
         }
     }
-
 }

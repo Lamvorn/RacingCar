@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   title: Shield
-  description: Power with which you can't die
+  description: 
   baseCost: 50
   powerKey: ShieldPowerKey
   pricePowerKey: PriceOfShieldKey

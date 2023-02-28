@@ -23,7 +23,6 @@ public class BackgroundFitScript : MonoBehaviour
             else
                 scaleFactorX = scaleFactorY;
         }
-        Debug.Log(scaleFactorX + "   " + scaleFactorY);
         transform.localScale = new Vector3(scaleFactorX, scaleFactorY, 1);
     }
 }

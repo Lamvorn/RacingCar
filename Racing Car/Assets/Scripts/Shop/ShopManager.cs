@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class ShopManager : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
             shopPanelsGO[i].SetActive(true);
@@ -56,8 +56,8 @@ public class ShopManager : MonoBehaviour
         {
             //Debug.Log(EncryptedPlayerPrefs.GetInt(shopItemsSO[i].powerKey));
 
-            shopPanels[i].titleTxt.text = shopItemsSO[i].title;
-            shopPanels[i].descriptionTxt.text = shopItemsSO[i].description;
+            //shopPanels[i].titleTxt.text = shopItemsSO[i].title;
+            //shopPanels[i].descriptionTxt.text = shopItemsSO[i].description;
             shopPanels[i].costTxt.text = (shopItemsSO[i].baseCost + EncryptedPlayerPrefs.GetInt(shopItemsSO[i].pricePowerKey)).ToString();
             for (int j = 0; j < EncryptedPlayerPrefs.GetInt(shopPanels[i].powerKey); j++)
             {
@@ -83,7 +83,8 @@ public class ShopManager : MonoBehaviour
                 if(EncryptedPlayerPrefs.GetInt("EquipedSkinKey") == i)
                 {
                     //Debug.Log("USO " + EncryptedPlayerPrefs.GetInt("EquipedSkinKey"));
-                    myEquipBtns_skin[i].GetComponentInChildren<TMP_Text>().text = "Equiped";    
+                    myEquipBtns_skin[EncryptedPlayerPrefs.GetInt("EquipedSkinKey")].transform.GetChild(0).GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);
+                    myEquipBtns_skin[EncryptedPlayerPrefs.GetInt("EquipedSkinKey")].transform.GetChild(1).GetComponentInChildren<TMP_Text>().gameObject.SetActive(true);
                     myEquipBtns_skin[i].interactable = false;
                 }else
                 {
@@ -122,9 +123,11 @@ public class ShopManager : MonoBehaviour
     }
 
     public void equipSkin(int btnNum) {
-        myEquipBtns_skin[EncryptedPlayerPrefs.GetInt("EquipedSkinKey")].GetComponentInChildren<TMP_Text>().text = "Equip";  
+        myEquipBtns_skin[EncryptedPlayerPrefs.GetInt("EquipedSkinKey")].transform.GetChild(0).GetComponentInChildren<TMP_Text>().gameObject.SetActive(true);
+        myEquipBtns_skin[EncryptedPlayerPrefs.GetInt("EquipedSkinKey")].transform.GetChild(1).GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);
         EncryptedPlayerPrefs.SetInt("EquipedSkinKey", btnNum);
-        myEquipBtns_skin[btnNum].GetComponentInChildren<TMP_Text>().text = "Equiped";
+        myEquipBtns_skin[btnNum].transform.GetChild(0).GetComponentInChildren<TMP_Text>().gameObject.SetActive(true);
+        myEquipBtns_skin[btnNum].transform.GetChild(1).GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);
         LoadPanels();
     }
 
@@ -152,6 +155,7 @@ public class ShopManager : MonoBehaviour
         EncryptedPlayerPrefs.SetInt("PurchasedSkinKey2", 0);
         EncryptedPlayerPrefs.SetInt("PurchasedSkinKey0", 1);
         EncryptedPlayerPrefs.SetInt("EquipedSkinKey", 0);
+        EncryptedPlayerPrefs.SetInt("HighScore", 0);
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
             EncryptedPlayerPrefs.SetInt(shopPanels[i].powerKey, 0);
@@ -159,7 +163,7 @@ public class ShopManager : MonoBehaviour
             
         }
         for (int i = 0; i < shopSkinSO.Length; i++) {
-            myEquipBtns_skin[i].GetComponentInChildren<TMP_Text>().text = "Equip";
+            myEquipBtns_skin[i].transform.GetChild(0).GetComponentInChildren<TMP_Text>().gameObject.SetActive(true);
         }
         baseCostReset();
         EncryptedPlayerPrefs.SetInt("NumberOfCoinsKey", 0);

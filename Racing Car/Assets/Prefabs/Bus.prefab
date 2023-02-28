@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredLane: 1
   explosion: {fileID: 179995197874015037, guid: a167c1ac766f3d548945ec9ad6107557, type: 3}
+  gameOverScreen: {fileID: 0}
 --- !u!61 &8128781430303932511
 BoxCollider2D:
   m_ObjectHideFlags: 0

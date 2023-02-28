@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magnet
   m_EditorClassIdentifier: 
   title: Magnet
-  description: Power with which you collect coins
+  description: 
   baseCost: 50
   powerKey: MagnetPowerKey
   pricePowerKey: PriceOfMagnetKey

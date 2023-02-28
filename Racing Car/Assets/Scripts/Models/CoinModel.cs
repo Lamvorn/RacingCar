@@ -15,6 +15,9 @@ public class CoinModel : MonoBehaviour
     public static int getCoin() { 
         return coins;
     }
+    public static void setCoin(int coin) { 
+        coins = coin;
+    }
     private void Awake()
     {
         transform.localScale = SettingScale.setLocalScale(scaleWeWantX, scaleWeWantY);
