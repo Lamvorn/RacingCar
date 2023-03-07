@@ -9,7 +9,9 @@ public class GameOverScreen : MonoBehaviour
     public TMP_Text highScoreTxt;
     public TMP_Text coinsText;
     private static string HIGH_SCORE = "HighScore";
+    public Canvas canvasMain;
     public void showGameOver(int score, int coin) {
+        canvasMain.sortingOrder = 1;    
         //Debug.Log("USO");
         gameObject.SetActive(true);
         if (score > EncryptedPlayerPrefs.GetInt(HIGH_SCORE))

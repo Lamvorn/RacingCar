@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7624236333340600680}
   - component: {fileID: -221649692323342166}
   m_Layer: 0
-  m_Name: Stage23.v1
+  m_Name: Stage23
   m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

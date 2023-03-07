@@ -11,7 +11,6 @@ public static class SettingScale
     private static int width = Screen.width;
     public static Vector3 setLocalScale(float scaleWeWantX, float scaleWeWantY)
     {
-        Debug.Log(height);
         return new Vector3((float)(1.67f * width / height)*scaleWeWantX, (float)(1.67f * width / height) * scaleWeWantY, (float)(1.67f * width / height) * 1f);
     }
     public static float setLocalDistance(float scaleWeWant)
