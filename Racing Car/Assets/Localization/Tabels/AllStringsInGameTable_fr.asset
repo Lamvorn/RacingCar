@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AllStringsInGameTable_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 8f4b644f4a3d85e41bfc734c8140c02d, type: 2}
+  m_Metadata:
+    m_Items:
+    - id: 0
+  m_TableData:
+  - m_Id: 33132892160
+    m_Localized: APPUYEZ POUR COMMENCER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 707543420928
+    m_Localized: BOUTIQUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2001146466304
+    m_Localized: 'Langue:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2536872333312
+    m_Localized: 'Son:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3123269586944
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4310723186688
+    m_Localized: Pouvoirs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4397440421888
+    m_Localized: Peaux
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4515317141504
+    m_Localized: Aimant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4564512133120
+    m_Localized: Ameliorer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4566366015488
+    m_Localized: Puissance avec laquelle vous collectez des pieces
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5002699460608
+    m_Localized: Puissance avec laquelle tu ne peux pas mourir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6648611459072
+    m_Localized: Bouclier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7391129096192
+    m_Localized: Equiper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7495105892352
+    m_Localized: Equipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8573251735552
+    m_Localized: Achat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32157135261696
+    m_Localized: "Jeu termin\xE9!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32472932798464
+    m_Localized: 'Score: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32611109949440
+    m_Localized: "Score \xE9lev\xE9: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32981328580608
+    m_Localized: "Pi\xE8ces de monnaie: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33796965519360
+    m_Localized: Menu Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33984719343616
+    m_Localized: "Red\xE9marrage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 200103157551104
+    m_Localized: French
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272152118939648
+    m_Localized: "Score \xE9lev\xE9: {0}"
+    m_Metadata:
+      m_Items:
+      - id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00d05f5a85f70000

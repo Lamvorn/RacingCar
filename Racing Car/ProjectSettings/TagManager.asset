@@ -11,6 +11,11 @@ TagManager:
   - Roadworks
   - ChangeIsStage
   - Magnet
+  - Shield
+  - MagnetBtn
+  - ImageForShop
+  - GM
+  - GameMusic
   layers:
   - Default
   - TransparentFX
@@ -19,7 +24,7 @@ TagManager:
   - Water
   - UI
   - Stage
-  - 
+  - Background
   - 
   - 
   - 
@@ -45,6 +50,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: backgroundLayerFrame
+    uniqueID: 1052362109
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GMSpawn : MonoBehaviour
@@ -16,6 +17,16 @@ public class GMSpawn : MonoBehaviour
     public GameObject startSpawnLocation;
     public GameObject spawnLocation;
 
+    public GameObject player;
+
+    public GameObject gameOverObject;
+
+    public TMP_Text score_text;
+    public GameObject score_all;
+
+    private float scoreAmount;
+    private float pointIncreasedPerSecond;
+
     private int spawnCount;
 
     public bool IsStage23 { get => isStage23; set => isStage23 = value; }
@@ -26,10 +37,19 @@ public class GMSpawn : MonoBehaviour
 
     private void Start()
     {
+        scoreAmount = 0;
+        pointIncreasedPerSecond = 1;
+        player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/player" + EncryptedPlayerPrefs.GetInt("EquipedSkinKey"));
         spawnCount = Random.Range(2, 18);
         //spawnCount = 0;
         int num_stage = Random.Range(0, ListStage_23.Count);
         Instantiate(ListStage_23[num_stage], startSpawnLocation.transform.position, Quaternion.Euler(0,0,-90));
+    }
+
+    private void Update()
+    {
+        score_text.text = "" + (int) scoreAmount;
+        scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
     }
     private void SpawnStage23() {
         if (spawnCount == 0)
@@ -72,5 +92,12 @@ public class GMSpawn : MonoBehaviour
     {
         if (isStage23) SpawnStage23();
         else SpawnStage32();
+    }
+
+    public void GameOver(int coin) {
+        score_all.gameObject.SetActive(false);
+        Time.timeScale = 0.5f; 
+        gameOverObject.GetComponent<GameOverScreen>().showGameOver((int) scoreAmount, coin);
+        Destroy(player);
     }
 }

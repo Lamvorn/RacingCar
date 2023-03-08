@@ -20,7 +20,9 @@ public class magnetColliderForCoins : MonoBehaviour
         //OVDE TREBA PRENETI VREME SA MARKETA, NEKA TO BUDE 5s + 2 * KOLIKO JE NABUDZENO PUTA U MARKETU s
     }
     public void startTimer() {
-        realTimeUntilEndOfPowerUp = setTimeUntilEndOfPowerUp;
+        realTimeUntilEndOfPowerUp = setTimeUntilEndOfPowerUp + EncryptedPlayerPrefs.GetInt("MagnetPowerKey")*10;
+        Debug.Log(realTimeUntilEndOfPowerUp);
+
     }
     private void Update()
     {
